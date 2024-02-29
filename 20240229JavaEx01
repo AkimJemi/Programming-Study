@@ -1,0 +1,11 @@
+        int input = 123456;
+        int num = Arrays.stream(String.valueOf(input).split("")).mapToInt(Integer::parseInt).reduce((a, b) -> a * b).getAsInt();
+        int output = 1;
+        while (true) {
+            if (num < 10) {
+                break;
+            }
+            num = Arrays.stream(String.valueOf(num).split("")).mapToInt(Integer::parseInt).reduce((a, b) -> a * b).getAsInt();
+            output++;
+        }
+        System.out.println("Count result : " + output);
