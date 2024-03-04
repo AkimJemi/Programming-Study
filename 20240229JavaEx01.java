@@ -10,6 +10,19 @@
         }
         System.out.println("Count result : " + output);
 
+    public static void main(String[] args) {
+        int input = 77;
+        int output = 0;
+        while (input >= 10) {
+            input = Arrays.stream(String.valueOf(input).split("")).
+                    mapToInt(Integer::parseInt).reduce((a, b) -> a * b).getAsInt();
+            output++;
+        }
+        System.out.println("Count result : " + output);
+    }
+
+
+
         String s = "DCXXI";
         int result = Arrays.stream(s.replace("IV", "4 ")
                 .replace("IV", "4 ")
