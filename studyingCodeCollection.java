@@ -93,8 +93,6 @@ class Solution {
         return myString.chars().mapToObj(operand -> String.valueOf((char) (Character.isLowerCase(operand) ? Character.toUpperCase(operand) : Character.toLowerCase(operand)))).collect(Collectors.joining());
     }
 }
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 class Solution {
     public String solution(String cipher, int code) {
