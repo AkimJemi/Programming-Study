@@ -1,4 +1,16 @@
+    // 로그인 성공?
+    public String solution(String[] idPw, String[][] db) {
+        return getDb(db).get(idPw[0]) != null ? getDb(db).get(idPw[0]).equals(idPw[1]) ? "login" : "wrong pw" : "fail";
+    }
 
+    private Map<String, String> getDb(String[][] db) {
+        Map<String, String> map = new HashMap<>();
+
+        for (String[] array : db) {
+            map.put(array[0], array[1]);
+        }
+        return map;
+    }
     // 직사각형 넓이 구하기
     public int solution(int[][] dots) {
         int answer = 0;
