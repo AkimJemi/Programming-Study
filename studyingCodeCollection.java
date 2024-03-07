@@ -1,4 +1,8 @@
-
+    // 문자열 밀기
+    public int solution(String A, String B) {
+        String tempB = B.repeat(3);
+        return tempB.indexOf(A);
+    }
 
     // 등수 매기기
     public int[] solution(int[][] score) {
