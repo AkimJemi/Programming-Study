@@ -1,4 +1,20 @@
 
+    // OX퀴즈
+    public String[] solution(String[] quiz) {
+        for(int i=0; i<quiz.length; i++){
+            String[] text = quiz[i].split(" ");
+            int result = Integer.parseInt(text[0]) + ( Integer.parseInt(text[2]) * ( text[1].equals("+") ? 1:-1) );
+            quiz[i] = result == Integer.parseInt(text[4])? "O": "X";
+        }
+        return quiz;
+    }
+
+    public String[] solution(String[] quiz) {
+        return Arrays.stream(quiz).map(s -> {
+            String[] arr = s.trim().split(" ");
+            return arr[1].equals("+") && Integer.parseInt(arr[0]) + Integer.parseInt(arr[2]) == Integer.parseInt(arr[4]) || Integer.parseInt(arr[0]) - Integer.parseInt(arr[2]) == Integer.parseInt(arr[4]) ? "O" : "X";
+        }).toArray(String[]::new);
+    }
 
     // A로 B 만들기
     public int solution(String before, String after) {
