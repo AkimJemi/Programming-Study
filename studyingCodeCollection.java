@@ -1,4 +1,25 @@
 
+
+    // A로 B 만들기
+    public int solution(String before, String after) {
+        char[] a = before.toCharArray();
+        char[] b = after.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        return new String(a).equals(new String(b)) ? 1 :0;
+    }
+
+    public int solution(String before, String after) {
+        int compareBefore = 0;
+        int compareAfter = 0;
+        for(int i = 0; i < before.length(); i++) {
+            compareBefore += before.charAt(i);
+            compareAfter += after.charAt(i);
+        }
+        return compareBefore == compareAfter ? 1:0;
+    }
+
     // 안전지대
     public int solution(int[][] board) {
         int answer = 0;
