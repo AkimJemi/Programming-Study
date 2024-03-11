@@ -1,14 +1,21 @@
-        int input = 123456;
-        int num = Arrays.stream(String.valueOf(input).split("")).mapToInt(Integer::parseInt).reduce((a, b) -> a * b).getAsInt();
-        int output = 1;
-        while (true) {
-            if (num < 10) {
-                break;
-            }
-            num = Arrays.stream(String.valueOf(num).split("")).mapToInt(Integer::parseInt).reduce((a, b) -> a * b).getAsInt();
-            output++;
-        }
-        System.out.println("Count result : " + output);
+        public static void main(String[] args) {
+        long result = IntStream.rangeClosed(1, 1000000).
+                mapToLong(a -> {
+                            int count = 0;
+                            int num = Integer.parseInt(String.valueOf(a));
+                            while (num < 10) {
+                                num = Arrays.stream(String.valueOf(num).split("")).
+                                        mapToInt(Integer::parseInt).
+                                        reduce((b, c) -> b * c).
+                                        getAsInt();
+                                count++;
+                            }
+                            return count;
+                        }
+                ).
+                filter(d -> d == 7).count();
+        System.out.println("조작 횟수가 7회가 되는 숫자는 몇개인가? : " + result);
+    }
 
     public static void main(String[] args) {
         int input = 77;
