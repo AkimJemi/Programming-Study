@@ -22,7 +22,7 @@ Medium
 8. String to Integer (atoi)
 Medium
 
-9. Palindrome Number
+9. Palindrome Number　〇
 Easy
 
 10. Regular Expression Matching
