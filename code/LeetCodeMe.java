@@ -45,3 +45,13 @@ class Solution {
         return resultNode;    
     }
 }
+
+// 9. Palindrome Number
+class Solution {
+    public boolean isPalindrome(int x) {
+        String strInput = String.valueOf(x);
+        List<String> strList = Arrays.asList(strInput.split(""));
+        Collections.reverse(strList);
+        return strList.stream().collect(Collectors.joining()).equals(strInput);
+    }
+}
