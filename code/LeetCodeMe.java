@@ -131,3 +131,26 @@ class Solution {
                 .replace("M", "1000 ").trim().split(" ")).mapToInt(Integer::parseInt).sum();
     }
 }
+
+23. Merge k Sorted Lists
+
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        List<Integer> intFirstList = new ArrayList<>();
+        for (ListNode node : lists) {
+            while (node != null) {
+                intFirstList.add(node.val);
+                if (node.next == null) {
+                    break;
+                }
+                node = node.next;
+            }
+        }
+        Optional<ListNode> result = intFirstList.stream().sorted(Comparator.reverseOrder()).map(a -> new ListNode(a)).reduce((a, b) -> {
+                    b.next = a;
+                    return b;
+                }
+        );
+        return result.isPresent() ? result.get() : null;
+    }
+}
