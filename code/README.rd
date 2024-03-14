@@ -7,7 +7,7 @@ Medium
 3. Longest Substring Without Repeating Characters
 Medium
 
-4. Median of Two Sorted Arrays
+4. Median of Two Sorted Arrays　〇
 Hard
 
 5. Longest Palindromic Substring
