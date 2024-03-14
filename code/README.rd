@@ -64,7 +64,7 @@ Easy
 22. Generate Parentheses
 Medium
 
-23. Merge k Sorted Lists
+23. Merge k Sorted Lists　〇
 Hard
 
 24. Swap Nodes in Pairs
