@@ -1,7 +1,7 @@
 
 
 
-// 2. Add Two Numbers
+2. Add Two Numbers
 // Medium
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -46,7 +46,27 @@ class Solution {
     }
 }
 
-// 9. Palindrome Number
+10. Regular Expression Matching
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+class Solution {
+    public boolean isMatch(String s, String p) {
+        if (p.contains(".") || p.contains("*")) {
+            while (p.contains("**")) {
+                p = p.replaceAll("\\*\\*", "\\*");
+            }
+            String regexp = "^" + p + "$";
+            Matcher matcher = Pattern.compile(regexp).matcher(s);
+            return matcher.find();
+        } else {
+            return s.equals(p);
+        }
+    }
+}
+
+
+9. Palindrome Number
 class Solution {
     public boolean isPalindrome(int x) {
         String strInput = String.valueOf(x);
