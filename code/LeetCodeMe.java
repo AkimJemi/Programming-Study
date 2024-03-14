@@ -46,6 +46,16 @@ class Solution {
     }
 }
 
+4. Median of Two Sorted Arrays
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        List<Integer> list = Arrays.stream(nums1).boxed().collect(Collectors.toList());
+        list.addAll(Arrays.stream(nums2).boxed().collect(Collectors.toList()));
+        list = list.stream().sorted().collect(Collectors.toList());
+        return list.size() % 2 != 0 ? list.get(list.size() / 2) : (double) (list.get(list.size() / 2 - 1) + list.get(list.size() / 2)) / 2;
+    }
+}
+
 10. Regular Expression Matching
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
