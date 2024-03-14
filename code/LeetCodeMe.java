@@ -56,6 +56,17 @@ class Solution {
     }
 }
 
+9. Palindrome Number
+class Solution {
+    public boolean isPalindrome(int x) {
+        String strInput = String.valueOf(x);
+        List<String> strList = Arrays.asList(strInput.split(""));
+        Collections.reverse(strList);
+        return strList.stream().collect(Collectors.joining()).equals(strInput);
+    }
+}
+
+
 10. Regular Expression Matching
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -75,13 +86,48 @@ class Solution {
     }
 }
 
-
-9. Palindrome Number
+12. Integer to Roman
 class Solution {
-    public boolean isPalindrome(int x) {
-        String strInput = String.valueOf(x);
-        List<String> strList = Arrays.asList(strInput.split(""));
-        Collections.reverse(strList);
-        return strList.stream().collect(Collectors.joining()).equals(strInput);
+    enum Roman {
+        M(1000), CM(900),D(500),CD(400),C(100),XC(90),L(50),XL(40),X(10),IX(9),V(5),IV(4),I(1);
+        
+        int num;
+
+        Roman(int num) {
+            this.num = num;
+        }
+    }
+
+    public String intToRoman(int num) {
+        StringBuilder stringBuilder = new StringBuilder();
+        while (num != 0) {
+            for (Roman roman : Roman.values()) {
+                if (num >= roman.num) {
+                    stringBuilder.append(roman.toString());
+                    num -= roman.num;
+                }
+            }
+        }
+        return stringBuilder.toString();
+    }
+}
+
+13. Roman to Integer
+class Solution {
+    public int romanToInt(String s) {
+        return Arrays.stream(s.replace("IV", "4 ")
+                .replace("IV", "4 ")
+                .replace("IX", "9 ")
+                .replace("XL", "40 ")
+                .replace("XC", "90 ")
+                .replace("CD", "400 ")
+                .replace("CM", "900 ")
+                .replace("I", "1 ")
+                .replace("V", "5 ")
+                .replace("X", "10 ")
+                .replace("L", "50 ")
+                .replace("C", "100 ")
+                .replace("D", "500 ")
+                .replace("M", "1000 ").trim().split(" ")).mapToInt(Integer::parseInt).sum();
     }
 }
