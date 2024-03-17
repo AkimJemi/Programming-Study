@@ -70,7 +70,7 @@ Hard
 24. Swap Nodes in Pairs
 Medium
 
-25. Reverse Nodes in k-Group
+25. Reverse Nodes in k-Group　〇
 Hard
 
 26. Remove Duplicates from Sorted Array
