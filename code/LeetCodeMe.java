@@ -1,7 +1,7 @@
 
 
 
-2. Add Two Numbers
+// 2. Add Two Numbers
 // Medium
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -46,7 +46,7 @@ class Solution {
     }
 }
 
-4. Median of Two Sorted Arrays
+// 4. Median of Two Sorted Arrays
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         List<Integer> list = Arrays.stream(nums1).boxed().collect(Collectors.toList());
@@ -56,7 +56,7 @@ class Solution {
     }
 }
 
-9. Palindrome Number
+// 9. Palindrome Number
 class Solution {
     public boolean isPalindrome(int x) {
         String strInput = String.valueOf(x);
@@ -67,7 +67,7 @@ class Solution {
 }
 
 
-10. Regular Expression Matching
+// 10. Regular Expression Matching
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,7 +86,7 @@ class Solution {
     }
 }
 
-12. Integer to Roman
+// 12. Integer to Roman
 class Solution {
     enum Roman {
         M(1000), CM(900),D(500),CD(400),C(100),XC(90),L(50),XL(40),X(10),IX(9),V(5),IV(4),I(1);
@@ -112,7 +112,7 @@ class Solution {
     }
 }
 
-13. Roman to Integer
+// 13. Roman to Integer
 class Solution {
     public int romanToInt(String s) {
         return Arrays.stream(s.replace("IV", "4 ")
@@ -132,7 +132,7 @@ class Solution {
     }
 }
 
-23. Merge k Sorted Lists
+// 23. Merge k Sorted Lists
 
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
@@ -152,5 +152,38 @@ class Solution {
                 }
         );
         return result.isPresent() ? result.get() : null;
+    }
+}
+
+
+// 25. Reverse Nodes in k-Group
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+                List<Integer> nodeList = new ArrayList<>();
+        while (head != null) {
+            nodeList.add(head.val);
+            if (head.next == null) {
+                break;
+            }
+            head = head.next;
+        }
+        List<Integer> middleList = new ArrayList<>();
+        int j = k - 1;
+        for (int i = 1; i <= nodeList.size(); i++) {
+            if (nodeList.size() % k != 0 && i + nodeList.size() % k > nodeList.size()) {
+                middleList.add(nodeList.get(i - 1));
+            } else {
+                middleList.add(nodeList.get(j--));
+                if ((i % k) == 0) {
+                    j = k * ((i / k) + 1) - 1;
+                }
+            }
+        }
+        Collections.reverse(middleList);
+        return middleList.stream().map(a -> new ListNode(a)).reduce((b, c) -> {
+                    c.next = b;
+                    return c;
+                }
+        ).get();
     }
 }
