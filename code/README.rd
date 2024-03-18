@@ -16,7 +16,7 @@ Medium
 6. Zigzag Conversion
 Medium
 
-7. Reverse Integer
+7. Reverse Integer　〇
 Medium
 
 8. String to Integer (atoi)
