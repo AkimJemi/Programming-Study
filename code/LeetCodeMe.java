@@ -56,6 +56,32 @@ class Solution {
     }
 }
 
+// 7. Reverse Integer
+class Solution {
+    public int reverse(int x) {
+        String str = new StringBuilder().append(x).reverse().toString().replace("-", "");
+
+        if (str.length() == 10) {
+            String intMax = String.valueOf(Integer.MAX_VALUE);
+            String[] strArray = str.split("");
+            String[] intMaxArray = intMax.split("");
+            System.out.println(str);
+            for (int i = 0; i < str.length(); i++) {
+                if (Integer.parseInt(strArray[i]) < Integer.parseInt(intMaxArray[i])) {
+                    break;
+                } else if (Integer.parseInt(strArray[i]) == Integer.parseInt(intMaxArray[i])) {
+                    continue;
+                } else {
+                    return 0;
+                }
+            }
+        }
+        if (x < 0) {
+            str = "-" + str;
+        }
+        return Integer.parseInt(str);
+    }
+}
 // 9. Palindrome Number
 class Solution {
     public boolean isPalindrome(int x) {
